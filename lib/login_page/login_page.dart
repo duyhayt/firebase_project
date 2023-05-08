@@ -16,7 +16,10 @@ class LoginPage extends StatefulWidget {
 enum FormType { login, register }
 
 class _LoginPageState extends State<LoginPage> {
-  final LoginController controller = Get.put(LoginController());
+
+  // Get.put(HomeViewModel());
+  // Get.put(DocumentListViewModel());
+  // final LoginController controller = Get.put(LoginController());
   final formKey = GlobalKey<FormState>();
 
   String? _email;

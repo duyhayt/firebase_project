@@ -1,14 +1,15 @@
+import 'package:firebase_project/repository/authentication/authentication_repository.dart';
 import 'package:firebase_project/routes/app_pages.dart';
 import 'package:firebase_project/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
-
 import 'login_page/login_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp()
+      .then((value) => Get.put(AuthenticationRepository()));
 
   runApp(const MyApp());
 }
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const LoginPage(),
       getPages: AppPages.pages,
-      initialRoute: Routes.login,
+      initialRoute: Routes.signup,
     );
   }
 }
