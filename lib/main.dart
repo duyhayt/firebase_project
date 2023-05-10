@@ -16,9 +16,7 @@ import 'modules/login_page/login_page.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialize();
-  await Firebase.initializeApp();
-
-  // .then((value) => Get.put(AuthenticationRepository()));
+  await Firebase.initializeApp().then((value) => Get.put(AuthenticationRepository()));
   appStore.toggleDarkMode(value: getBoolAsync(isDarkModeOnPref));
   runApp(const MyApp());
 }
@@ -37,11 +35,11 @@ class MyApp extends StatelessWidget {
               title: APP_NAME,
               theme: AppThemeData.lightTheme,
               darkTheme: AppThemeData.darkTheme,
-              themeMode:
-                  appStore.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
+              themeMode: appStore.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
               home: const FlashScreen(),
               getPages: AppPages.pages,
-              initialRoute: Routes.initial,
+             // initialRoute: Routes.initial,
+          // initialBinding: ,
             ));
   }
 }

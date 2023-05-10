@@ -38,8 +38,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Image(
                     image: const AssetImage(car),
                     color: appStore.isDarkModeOn ? white : black,
-                    height: 110,
-                    width: 110),
+                    height: 150,
+                    width: 150),
                 Text(
                   "Let's you in",
                   style: boldTextStyle(size: 30),

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:firebase_project/home_page.dart';
+import 'package:firebase_project/modules/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nb_utils/nb_utils.dart';

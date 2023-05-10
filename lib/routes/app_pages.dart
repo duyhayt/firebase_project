@@ -1,5 +1,6 @@
-import 'package:firebase_project/home_page.dart';
+import 'package:firebase_project/modules/home_page/home_page.dart';
 import 'package:firebase_project/modules/flash_page/flash_page.dart';
+import 'package:firebase_project/modules/setting_page/setting_page.dart';
 import 'package:get/get.dart';
 import '../modules/login_page/login_page.dart';
 import '../modules/signup_page/signup_page.dart';
@@ -26,6 +27,12 @@ class AppPages {
     GetPage(
         name: Routes.home,
         page: () => const HomePage(),
+        transitionDuration: const Duration(milliseconds: duration),
+        transition: Transition.leftToRight)
+    ,
+    GetPage(
+        name: Routes.setting,
+        page: () => const SettingPage(),
         transitionDuration: const Duration(milliseconds: duration),
         transition: Transition.leftToRight)
   ];

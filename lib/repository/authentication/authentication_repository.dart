@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_project/routes/app_routes.dart';
 import 'package:get/get.dart';
 
-import 'exception.dart';
+import '../../datas/exceptions/exception.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -24,19 +24,16 @@ class AuthenticationRepository extends GetxController {
   }
 
   _setInitialScreen(User? user) {
-    user == null ? Get.toNamed(Routes.welcome) : Get.offAll(Routes.login
-    );
+    if (user != null) {
+      Get.toNamed(Routes.home);
+    } else {
+      Get.offAll(Routes.login);
+    }
   }
 
-  Future<void> createUserWithEmailAndPassword(
-      String email, String password) async {
+  Future<void> createUserWithEmailAndPassword(String email, String password) async {
     try {
-      await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-
-      firebaseUser.value != null
-          ? Get.toNamed(Routes.login)
-          : Get.toNamed(Routes.home);
+      await _auth.createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       final ex = SignUpEmailAndPasswordFailure.code(e.code);
       Get.snackbar('Error', ex.message);

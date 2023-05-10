@@ -1,4 +1,6 @@
 const car = 'assets/car.png';
+const logo = 'assets/logo.png';
+const logo_en = 'assets/logo_en.png';
 const loding = 'assets/loading.png';
 const bugati = 'assets/bugati.jpeg';
 const whiteCar = 'assets/white_car.jpg';

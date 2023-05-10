@@ -23,9 +23,9 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> with SingleTicker
   }
 
   Future<void> init() async {
-    list.add(WalkThroughModelClass(title: 'The best car in your \nhands with carea', image: car_gif));
-    list.add(WalkThroughModelClass(title: 'The best car in your \nhands with carea', image: car_gif));
-    list.add(WalkThroughModelClass(title: 'The best car in your \nhands with carea', image: car_gif));
+    list.add(WalkThroughModelClass(title: 'The best car in your \nhands with carea', image: logo_en));
+    list.add(WalkThroughModelClass(title: 'The best car in your \nhands with carea', image: logo_en));
+    list.add(WalkThroughModelClass(title: 'The best car in your \nhands with carea', image: logo_en));
   }
 
   @override
