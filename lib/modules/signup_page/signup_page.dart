@@ -1,4 +1,4 @@
-import 'package:firebase_project/signup_page/signup_page_controller.dart';
+import 'package:firebase_project/modules/signup_page/signup_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

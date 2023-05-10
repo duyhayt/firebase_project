@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_project/home_page.dart';
-import 'package:firebase_project/login_page/login_page_controller.dart';
 import 'package:firebase_project/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +15,6 @@ class LoginPage extends StatefulWidget {
 enum FormType { login, register }
 
 class _LoginPageState extends State<LoginPage> {
-
   // Get.put(HomeViewModel());
   // Get.put(DocumentListViewModel());
   // final LoginController controller = Get.put(LoginController());
@@ -80,22 +78,28 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Firebase Authentication'),
-        centerTitle: true,
-      ),
-      body: Container(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: text() + buildInputs() + buildSubmitButtons(),
-            ),
-          )),
-    );
+    return WillPopScope(
+        onWillPop: () async {
+          FocusScope.of(context).unfocus();
+          return true;
+        },
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: AppBar(elevation: 0, iconTheme: IconThemeData(color: context.iconColor)),
+          body: SingleChildScrollView(
+            child: Container(
+                padding: const EdgeInsets.all(16.0),
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: text() + buildInputs() + buildSubmitButtons(),
+                  ),
+                )),
+          ),
+        ));
   }
 
   List<Widget> text() {
