@@ -18,7 +18,10 @@ class AuthenticationRepository extends GetxService {
     firebaseUser = Rx<User?>(_auth.currentUser);
 
     super.onInit();
+    _setInitialScreen;
   }
+
+
   @override
   void onReady() {
     // firebaseUser = Rx<User?>(_auth.currentUser);
@@ -30,27 +33,16 @@ class AuthenticationRepository extends GetxService {
 
   _setInitialScreen(User? user) {
     if (user != null) {
-      Get.toNamed(Routes.home);
+
+      print('Co user log thang vao home');
+      Get.offAllNamed(Routes.home);
     } else {
+      print('Route loginzzzzzzz');
       Get.toNamed(Routes.login);
     }
   }
 
-  // Future<void> createUserWithEmailAndPassword(String email, String password) async {
-  //   try {
-  //     await _auth.createUserWithEmailAndPassword(email: email, password: password);
-  //   } on FirebaseAuthException catch (e) {
-  //     final ex = SignUpEmailAndPasswordFailure.code(e.code);
-  //     Get.snackbar('Error', ex.message);
-  //     throw ex;
-  //   } catch (_) {
-  //     final ex = SignUpEmailAndPasswordFailure();
-  //     print('Exception - ${ex.message}');
-  //     throw ex;
-  //   }
-  // }
-  //
-  // Future<void> logout() async {
-  //   await _auth.signOut();
-  // }
+  Future<void> logout() async {
+    await _auth.signOut();
+  }
 }
