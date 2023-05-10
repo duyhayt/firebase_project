@@ -1,5 +1,5 @@
 class Routes {
-  static const initial = '/';
+  static const initial = '/init';
   static const welcome = '/welcome';
   static const login = '/login';
   static const signup = '/signup';

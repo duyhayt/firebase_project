@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../datas/exceptions/exception.dart';
 
-class AuthenticationRepository extends GetxController {
+class AuthenticationRepository extends GetxService {
   static AuthenticationRepository get instance => Get.find();
 
   //Variables
@@ -14,9 +14,14 @@ class AuthenticationRepository extends GetxController {
   late final Rx<User?> firebaseUser;
 
   @override
-  void onReady() {
-    Future.delayed(const Duration(seconds: 6));
+  void onInit() {
     firebaseUser = Rx<User?>(_auth.currentUser);
+
+    super.onInit();
+  }
+  @override
+  void onReady() {
+    // firebaseUser = Rx<User?>(_auth.currentUser);
 
     firebaseUser.bindStream(_auth.userChanges());
 
@@ -27,25 +32,25 @@ class AuthenticationRepository extends GetxController {
     if (user != null) {
       Get.toNamed(Routes.home);
     } else {
-      Get.offAll(Routes.login);
+      Get.toNamed(Routes.login);
     }
   }
 
-  Future<void> createUserWithEmailAndPassword(String email, String password) async {
-    try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-      final ex = SignUpEmailAndPasswordFailure.code(e.code);
-      Get.snackbar('Error', ex.message);
-      throw ex;
-    } catch (_) {
-      final ex = SignUpEmailAndPasswordFailure();
-      print('Exception - ${ex.message}');
-      throw ex;
-    }
-  }
-
-  Future<void> logout() async {
-    await _auth.signOut();
-  }
+  // Future<void> createUserWithEmailAndPassword(String email, String password) async {
+  //   try {
+  //     await _auth.createUserWithEmailAndPassword(email: email, password: password);
+  //   } on FirebaseAuthException catch (e) {
+  //     final ex = SignUpEmailAndPasswordFailure.code(e.code);
+  //     Get.snackbar('Error', ex.message);
+  //     throw ex;
+  //   } catch (_) {
+  //     final ex = SignUpEmailAndPasswordFailure();
+  //     print('Exception - ${ex.message}');
+  //     throw ex;
+  //   }
+  // }
+  //
+  // Future<void> logout() async {
+  //   await _auth.signOut();
+  // }
 }

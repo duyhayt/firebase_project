@@ -1,3 +1,4 @@
+import 'package:firebase_project/modules/flash_page/flash_binding.dart';
 import 'package:firebase_project/modules/home_page/home_page.dart';
 import 'package:firebase_project/modules/flash_page/flash_page.dart';
 import 'package:firebase_project/modules/setting_page/setting_page.dart';
@@ -12,6 +13,7 @@ class AppPages {
     GetPage(
       name: Routes.initial,
       page: () => const FlashScreen(),
+      binding: FlasBinding(),
       transitionDuration: const Duration(milliseconds: duration),
     ),
     GetPage(

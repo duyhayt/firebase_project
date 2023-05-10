@@ -11,7 +11,6 @@ import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import 'modules/flash_page/flash_page.dart';
-import 'modules/login_page/login_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,10 +35,9 @@ class MyApp extends StatelessWidget {
               theme: AppThemeData.lightTheme,
               darkTheme: AppThemeData.darkTheme,
               themeMode: appStore.isDarkModeOn ? ThemeMode.dark : ThemeMode.light,
-              home: const FlashScreen(),
               getPages: AppPages.pages,
-             // initialRoute: Routes.initial,
-          // initialBinding: ,
+              initialRoute: Routes.initial,
+
             ));
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
-
 import '../setting_page/setting_page.dart';
 
 class HomePage extends StatefulWidget {
