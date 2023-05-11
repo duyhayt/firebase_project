@@ -26,7 +26,7 @@ class DashboardPage extends StatelessWidget {
           children: [
             Text("Good Morning 👋", style: secondaryTextStyle()),
             const SizedBox(height: 5),
-            Text("Andrew Desuza", style: boldTextStyle()),
+            Text("Duy Hà Nguyễn", style: boldTextStyle()),
           ],
         ),
         leading: GestureDetector(

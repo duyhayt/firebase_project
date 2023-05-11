@@ -7,7 +7,6 @@ import '../components/app_components.dart';
 import '../main.dart';
 import '../routes/app_routes.dart';
 import '../values/styles/images.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -25,7 +24,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         return true;
       },
       child: Scaffold(
-        appBar: careaAppBarWidget(context, titleText: ""),
         body: SingleChildScrollView(
           child: Container(
             alignment: Alignment.center,

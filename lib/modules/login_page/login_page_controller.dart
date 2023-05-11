@@ -28,11 +28,13 @@ class LoginController extends GetxController {
   Future<void> validateAndSubmit() async {
     if (validationAndSave()) {
       try {
-        UserCredential user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email.toString(), password: password.toString());
+        UserCredential user = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+                email: email.toString(), password: password.toString());
 
         print('Signed in: ${user.user?.uid}');
         LocalStorage.get.write('isFirstLogin', true);
-        Get.toNamed(Routes.home);
+        Get.offAllNamed(Routes.home);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           Get.snackbar('Error', 'No user found for that email.');

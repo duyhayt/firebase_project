@@ -6,8 +6,4 @@ class LoginBinding extends Bindings {
   void dependencies() {
     Get.put(LoginController());
   }
-
-
-
-
 }
