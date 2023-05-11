@@ -1,29 +1,27 @@
+import 'dart:convert';
 import 'package:get_storage/get_storage.dart';
 
-abstract class LocalStorage {
-  Future writeData({required key, required data});
+class LocalStorage {
+  LocalStorage._internal();
 
-  Future readData({required key});
+  static final LocalStorage _singleton = LocalStorage._internal();
+  static LocalStorage get = _singleton;
 
-  Future removeData({required key});
-}
+  final GetStorage _storage = GetStorage();
 
-class LocalStorageImpl implements LocalStorage {
-  @override
-  Future readData({required key}) async {
-    final userData = GetStorage();
-    await userData.read(key);
+  Future write(String key, dynamic value) async {
+    await _storage.write(key, jsonEncode(value));
   }
 
-  @override
-  Future removeData({required key}) async {
-    final userData = GetStorage();
-    await userData.remove(key);
+  Future read(String key) async {
+    await _storage.read(key);
   }
 
-  @override
-  Future writeData({required key, required data}) async {
-    final userData = GetStorage();
-    await userData.write(key, data);
+  // Future remove(String key) async {
+  //   await _storage.read(key);
+  // }
+
+  Future remove(String key) async {
+    await _storage.remove(key);
   }
 }

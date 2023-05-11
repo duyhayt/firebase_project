@@ -7,4 +7,6 @@ class Routes {
   static const home = '/home';
   static const setting = '/setting';
   static const registration = '/registration';
+  static const dashboard = '/dashboard';
+  static const profile = '/profile';
 }

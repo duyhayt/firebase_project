@@ -8,6 +8,7 @@ const editTextBgColor = Color(0xFFF8F8F8);
 const BHAppTextColorPrimary = Color(0xFF212121);
 
 // Dark Theme Colors
+const defaultColor = Colors.blue;
 const appBackgroundColorDark = Color(0xFF121212);
 const cardBackgroundBlackDark = Color(0xFF1F1F1F);
 const color_primary_black = Color(0xFF131d25);

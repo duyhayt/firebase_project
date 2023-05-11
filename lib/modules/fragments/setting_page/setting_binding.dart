@@ -1,4 +1,4 @@
-import 'package:firebase_project/modules/setting_page/setting_controller.dart';
+import 'package:firebase_project/modules/fragments/setting_page/setting_controller.dart';
 import 'package:get/get.dart';
 
 class SettingBinding extends Bindings {
@@ -7,3 +7,5 @@ class SettingBinding extends Bindings {
     Get.put(SettingController());
   }
 }
+
+

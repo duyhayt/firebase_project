@@ -161,6 +161,17 @@ PreferredSizeWidget careaAppBarWidget(BuildContext context, {String? titleText, 
     title: Text(titleText ?? "", style: boldTextStyle(size: 18)),
     elevation: 0.0,
   );
+}PreferredSizeWidget careaAppBarWidget2(BuildContext context, {String? titleText, Widget? actionWidget, Widget? actionWidget2, required Function onPress}) {
+  return AppBar(
+    backgroundColor: context.scaffoldBackgroundColor,
+    leading: IconButton(
+      icon: Icon(Icons.arrow_back, color: context.iconColor),
+      onPressed: onPress(),
+    ),
+    actions: [actionWidget ?? SizedBox(), actionWidget2 ?? SizedBox()],
+    title: Text(titleText ?? "", style: boldTextStyle(size: 18)),
+    elevation: 0.0,
+  );
 }
 
 InputDecoration inputDecoration(
