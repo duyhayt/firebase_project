@@ -22,7 +22,10 @@ class LoginPage extends GetView<LoginController> {
         },
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: AppBar(elevation: 0, iconTheme: const IconThemeData(color: Colors.blue)),
+          appBar: AppBar(
+            elevation: 0,
+            automaticallyImplyLeading: false,
+          ),
           body: SingleChildScrollView(
             child: Container(
                 padding: const EdgeInsets.all(16.0),

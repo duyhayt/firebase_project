@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 class InitScreenBinding implements Bindings {
   @override
   void dependencies() {
-    Get.put(AuthenticationRepository());
     Get.put(InitScreenController());
   }
 }
