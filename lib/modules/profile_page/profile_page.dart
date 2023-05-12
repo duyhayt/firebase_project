@@ -26,6 +26,7 @@ class ProfilePage extends GetView<ProfileController> {
               padding: const EdgeInsets.all(16),
               alignment: Alignment.center,
               child: Form(
+                key: controller.formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,9 +74,7 @@ class ProfilePage extends GetView<ProfileController> {
                         }
                         return null;
                       },
-                      onFieldSubmitted: (v) {
-
-                      },
+                      controller: controller.,
                       decoration: inputDecoration(context, hintText: "Full name"),
                     ),
                     const SizedBox(height: 15),

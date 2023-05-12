@@ -1,17 +1,19 @@
-class User {
-  User({
+class UserModel {
+  UserModel({
     required this.fullName,
-    required this.nickName,
-    required this.birthDay,
+    required this.role,
     required this.email,
-    required this.phone,
-    required this.gender,
+    this.phone,
+    this.gender,
+    this.id,
+    this.birthDay,
   });
 
   String fullName;
-  String nickName;
-  DateTime birthDay;
+  String role;
+  DateTime? birthDay;
   String email;
-  String phone;
-  String gender;
+  String? phone;
+  String? gender;
+  String? id;
 }
