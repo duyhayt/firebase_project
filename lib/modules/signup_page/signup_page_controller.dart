@@ -1,14 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../datas/exceptions/exception.dart';
-import '../../repository/authentication/authentication_repository.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
 
   final _auth = FirebaseAuth.instance;
+  final _fireStore = FirebaseFirestore.instance;
 
   final formKey = GlobalKey<FormState>();
   final isIconTrue = false.obs;
@@ -22,7 +23,10 @@ class SignUpController extends GetxController {
 
   Future<void> createUserWithEmailAndPassword(String email, String password) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+
+      User? user = result.user;
+      await _fireStore.collection('Users').doc(user?.uid).set({'fullName': "", 'company': "CMC", 'age': "23", 'address': 'Nghe An'});
     } on FirebaseAuthException catch (e) {
       final ex = SignUpEmailAndPasswordFailure.code(e.code);
       Get.snackbar('Error', ex.message);

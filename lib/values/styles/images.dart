@@ -43,6 +43,9 @@ const bmwgif = 'assets/bmw.gif';
 const car_gif = 'assets/car_gif.gif';
 const wrongkeyword = 'assets/wrongkeyword.png';
 
-const ha1 = 'assets/ha1.jpg';
-const ha2 = 'assets/userImage.jpg';
-const ha3 = 'assets/ha3.jpg';
+
+// cmc logo
+
+const ha1 = 'assets/images/cmc_logo/CMC ATI-07.png';
+const ha2 = 'assets/images/cmc_logo/CMC ATI-06.png';
+const ha3 = 'assets/images/cmc_logo/CMC ATI-05.png';
