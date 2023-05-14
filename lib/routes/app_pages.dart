@@ -1,6 +1,9 @@
 import 'package:firebase_project/modules/home_page/home_binding.dart';
 import 'package:firebase_project/modules/home_page/home_page.dart';
+import 'package:firebase_project/modules/list_user_page/list_user_page.dart';
+import 'package:firebase_project/modules/list_user_page/list_user_page_binding.dart';
 import 'package:firebase_project/modules/login_page/login_binding.dart';
+import 'package:firebase_project/modules/notification_page/notification_binding.dart';
 import 'package:firebase_project/modules/profile_page/profile_binding.dart';
 import 'package:firebase_project/modules/signup_page/signup_binding.dart';
 import 'package:firebase_project/modules/walkthrough/walkthrough_page.dart';
@@ -11,6 +14,8 @@ import '../modules/fragments/setting_page/setting_page.dart';
 import '../modules/init_page/init_binding.dart';
 import '../modules/init_page/init_page.dart';
 import '../modules/login_page/login_page.dart';
+import '../modules/notification_page/notification_page.dart';
+import '../modules/profile_page/aaa.dart';
 import '../modules/profile_page/profile_page.dart';
 import '../modules/signup_page/signup_page.dart';
 import '../modules/walkthrough/walkthrough_binding.dart';
@@ -49,8 +54,7 @@ class AppPages {
         page: () => const HomePage(),
         binding: HomeBinding(),
         transitionDuration: const Duration(milliseconds: duration),
-        transition: Transition.leftToRight)
-    ,
+        transition: Transition.leftToRight),
     GetPage(
         name: Routes.setting,
         page: () => const SettingPage(),
@@ -69,11 +73,22 @@ class AppPages {
         binding: RegistrationBinding(),
         transitionDuration: const Duration(milliseconds: duration),
         transition: Transition.leftToRight),
-
     GetPage(
         name: Routes.profile,
         page: () => const ProfilePage(),
         binding: ProfileBinding(),
+        transitionDuration: const Duration(milliseconds: duration),
+        transition: Transition.leftToRight),
+    GetPage(
+        name: Routes.notification,
+        page: () => const NotificationPage(),
+        binding: NotificationBinding(),
+        transitionDuration: const Duration(milliseconds: duration),
+        transition: Transition.leftToRight),
+    GetPage(
+        name: Routes.listUser,
+        page: () => const ListUserPage(),
+        binding: ListUserBinding(),
         transitionDuration: const Duration(milliseconds: duration),
         transition: Transition.leftToRight),
   ];

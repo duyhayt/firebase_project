@@ -9,4 +9,6 @@ class Routes {
   static const registration = '/registration';
   static const dashboard = '/dashboard';
   static const profile = '/profile';
+  static const notification = '/notification';
+  static const listUser = '/listUser';
 }

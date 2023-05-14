@@ -32,9 +32,8 @@ class LoginController extends GetxController {
             .signInWithEmailAndPassword(
                 email: email.toString(), password: password.toString());
 
-        print('Signed in: ${user.user?.uid}');
+        print('Đăng nhập với email: ${user.user?.uid}');
         LocalStorage.get.write('isFirstLogin', true);
-        Get.offAllNamed(Routes.home);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           Get.snackbar('Error', 'No user found for that email.');

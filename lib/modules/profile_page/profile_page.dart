@@ -13,7 +13,7 @@ class ProfilePage extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
-    ProfileController controller = Get.put(ProfileController());
+    Get.put(ProfileController());
     return WillPopScope(
       onWillPop: () async {
         FocusScope.of(context).unfocus();
@@ -59,7 +59,8 @@ class ProfilePage extends GetView<ProfileController> {
                                     color: Colors.black.withOpacity(0.3)),
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: const Icon(Icons.edit, color: white, size: 16),
+                              child: const Icon(Icons.edit,
+                                  color: white, size: 16),
                             ),
                           ),
                         ),
@@ -67,15 +68,14 @@ class ProfilePage extends GetView<ProfileController> {
                     ),
                     const SizedBox(height: 15),
                     TextFormField(
-
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Please enter user name';
                         }
                         return null;
                       },
-                      controller: controller.,
-                      decoration: inputDecoration(context, hintText: "Full name"),
+                      decoration:
+                          inputDecoration(context, hintText: "Full name"),
                     ),
                     const SizedBox(height: 15),
                     TextFormField(
@@ -139,7 +139,7 @@ class ProfilePage extends GetView<ProfileController> {
                             ? cardDarkColor
                             : editTextBgColor,
                       ),
-                      padding: EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
+                      padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
                       child: DropdownButton<String>(
                         elevation: 16,
                         style: primaryTextStyle(),
@@ -159,23 +159,24 @@ class ProfilePage extends GetView<ProfileController> {
                         }).toList(),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     GestureDetector(
                       onTap: () {},
                       child: Container(
+                        width: MediaQuery.of(context).size.width * 0.5,
                         alignment: Alignment.center,
-                        padding: EdgeInsets.symmetric(vertical: 16),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
                         decoration: BoxDecoration(
                           color: appStore.isDarkModeOn
                               ? cardDarkColor
                               : Colors.black,
                           borderRadius: BorderRadius.circular(45),
                         ),
-                        child: Text('Continue',
+                        child: Text('Update Profile',
                             style: boldTextStyle(color: white)),
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                   ],
                 ),
               ),

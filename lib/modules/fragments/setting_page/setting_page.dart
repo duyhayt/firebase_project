@@ -64,10 +64,10 @@ class SettingPage extends GetView<SettingController> {
               SettingItemWidget(
                 leading:
                     const Icon(Icons.location_on_outlined, color: defaultColor),
-                title: "Address",
+                title: "List Users",
                 titleTextStyle: boldTextStyle(),
                 onTap: () {
-                  //
+                  Get.toNamed(Routes.listUser);
                 },
                 trailing: const Icon(Icons.arrow_forward_ios_rounded,
                     size: 18, color: defaultColor),
@@ -77,7 +77,9 @@ class SettingPage extends GetView<SettingController> {
                     color: defaultColor),
                 title: "Notification",
                 titleTextStyle: boldTextStyle(),
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.notification);
+                },
                 trailing: const Icon(Icons.arrow_forward_ios_rounded,
                     size: 18, color: defaultColor),
               ),
@@ -160,7 +162,6 @@ class SettingPage extends GetView<SettingController> {
                 titleTextStyle: boldTextStyle(),
                 onTap: () {
                   controller.logout();
-                  Get.offAllNamed(Routes.login);
                 },
                 trailing: const Icon(Icons.arrow_forward_ios_rounded,
                     size: 18, color: defaultColor),
